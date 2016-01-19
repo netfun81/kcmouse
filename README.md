@@ -1,0 +1,2 @@
+# kcmouse
+minimal window manager
