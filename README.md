@@ -1,17 +1,27 @@
-# kcmouse
+## kcmouse ##
 minimal window manager
 
 Very minimal window manager using Windows Key + Mouse buttons for the following:
 
-Button1 - launch dmenu to start other programs
+Button1 - lower the current focused window exposing what is underneath
 
-Button2 - kill window under the mouse pointer
+Button2 - make window fullscreen and move to right monitor
 
-Button3 - resize window to fullscreen
-
-Button4 - Scroll wheel down to cycle open windows
-
-Button5 - Scroll wheel up to cycle open windows
+Button3 - make window fullscreen and move to left monitor
 
 
 to compile:  gcc -o kcmouse kcmouse.c -lX11
+
+
+I recommend to use xbindkeys and xdotool for launching, focus, and kill functions.   
+
+#Sample .xbindkeysrc:
+
+	"dmenu_run"
+	mod4 + r
+
+	"xdotool selectwindow windowfocus"
+	mod4 + x
+ 
+	"xdotool selectwindow windowkill"
+	mod4 + q
