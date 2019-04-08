@@ -26,23 +26,22 @@ int main(void) {
 	XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
 	if(event.type == ButtonPress)
         {   
-        if (event.xbutton.button == Button1) {
-            system("dmenu_run");
-        }  else if (event.xbutton.button == Button2) {
-            XMoveResizeWindow(display, focuswin, 1920, 0, 1920, 1080);
-        } else if (event.xbutton.button == Button3) {		
-            XMoveResizeWindow(display, focuswin, 0, 0, 1920, 1080);
-        }  else if (event.xbutton.button == Button4) {
+           if (event.xbutton.button == Button1) 
+            system("firefox &");
+           else if (event.xbutton.button == Button2)
+            system("dmenu_run &");
+           else if (event.xbutton.button == Button3)
+            XMoveResizeWindow(display, focuswin, 0, 0, 1920, 1080);   
+           else if (event.xbutton.button == Button4) { 
             XCirculateSubwindowsDown(display, root);
             XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
             XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-            XRaiseWindow(display, focuswin);
-        }  else if (event.xbutton.button == Button5) {
+            XRaiseWindow(display, focuswin);         }
+           else if (event.xbutton.button == Button5) {
             XCirculateSubwindowsUp(display, root);
             XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
             XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-            XRaiseWindow(display, focuswin);
-}
+            XRaiseWindow(display, focuswin);         }
 }
 }
 }
