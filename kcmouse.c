@@ -2,11 +2,11 @@
 
 int main(void)
       { Display* display;
-        Window root;
-        XEvent event;
-        int     unusedint;
-        Window  unusedwin;
-        Window  focuswin;
+        Window   root;
+        XEvent   event;
+        int      unusedint;
+        Window   unusedwin;
+        Window   focuswin;
 
 void delwin(focuswin)
       { if (focuswin != None)
@@ -21,7 +21,7 @@ void delwin(focuswin)
 
         display = XOpenDisplay(NULL);
         if(display == NULL)
-        { return 1; }
+      { return 1; }
 
         root = DefaultRootWindow(display);
 
@@ -33,28 +33,28 @@ void delwin(focuswin)
 
 for(;;)
       { XNextEvent(display, &event);
-	XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
+        XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
 
 	if(event.type == ButtonPress)
-        { if (event.xbutton.button == Button1)
+      { if (event.xbutton.button == Button1)
         system("dmenu_run &");
         else if (event.xbutton.button == Button2)
         delwin(event.xkey.subwindow);
         else if (event.xbutton.button == Button3)
-        { if (focuswin != None)
-        { XMoveResizeWindow(display, focuswin, 0, 0, 1920, 1080); }}
+      { if (focuswin != None)
+      { XMoveResizeWindow(display, focuswin, 0, 0, 1920, 1080); }}
         else if (event.xbutton.button == Button4)
-        { if (focuswin != None)
-        { XCirculateSubwindowsDown(display, root);
-          XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
-          XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-          XRaiseWindow(display, focuswin); }}
+      { if (focuswin != None)
+      { XCirculateSubwindowsDown(display, root);
+        XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
+        XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
+        XRaiseWindow(display, focuswin); }}
         else if (event.xbutton.button == Button5)
-        { if (focuswin != None)
-        { XCirculateSubwindowsUp(display, root);
-          XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
-          XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-          XRaiseWindow(display, focuswin); }}
+      { if (focuswin != None)
+      { XCirculateSubwindowsUp(display, root);
+        XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
+        XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
+        XRaiseWindow(display, focuswin); }}
 }
 }
 }
