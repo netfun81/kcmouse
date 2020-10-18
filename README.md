@@ -1,5 +1,4 @@
 ## kcmouse ##
-minimal window manager
 
 Very minimal window manager using Windows Key + Mouse buttons for the following:
 
