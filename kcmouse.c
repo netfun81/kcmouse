@@ -47,14 +47,14 @@ for(;;)
       { if (focuswin != None)
       { XCirculateSubwindowsDown(display, root);
         XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
-        XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-        XRaiseWindow(display, focuswin); }}
+        XRaiseWindow(display, focuswin); 
+        XSetInputFocus(display, focuswin, RevertToParent, CurrentTime); }}
         else if (event.xbutton.button == Button5)
       { if (focuswin != None)
       { XCirculateSubwindowsUp(display, root);
         XQueryPointer(display, root, &unusedwin, &focuswin, &unusedint, &unusedint, &unusedint, &unusedint, &unusedint);
-        XSetInputFocus(display, focuswin, RevertToNone, CurrentTime);
-        XRaiseWindow(display, focuswin); }}
+        XRaiseWindow(display, focuswin); 
+        XSetInputFocus(display, focuswin, RevertToParent, CurrentTime); }}
 }
 }
 }
